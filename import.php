@@ -1,13 +1,17 @@
 <?php
 
+//connect with the database
 $conn = mysqli_connect("localhost","root","","csv");
 
+//If user hits the Import button the it will be checked if there contains any file or not
 if(isset($_POST["import"])) {
     $fileName = $_FILES["file"]["tmp_name"];
 
+    //Checking the selected file size
     if($_FILES["file"]["size"] > 0) {
         $file = fopen($fileName,"r");
 
+        //after read the entire file, data will be inserted to the database
         while(($column = fgetcsv($file, 10000, ",")) !== FALSE) {
             $sqlInsert = "INSERT INTO datainsert(person_name,position,office,age,start_date)
             VALUES ('".$column[0]."','".$column[1]."','".$column[2]."','".$column[3]."','".$column[4]."')";
@@ -55,6 +59,8 @@ if(mysqli_num_rows($result) > 0) {
                 <th style="padding: 8px">Start Date</th>
             </tr>
         </thead>
+
+        <!-- fetching the data from the database -->
         <?php
         while($row = mysqli_fetch_array($result)) {
             ?>
