@@ -24,12 +24,14 @@ if(isset($_POST["import"])) {
 
 ?>
 
-<form class="form-horizontal" action="" method="post" name="uploadCsv" enctype="multipart/form-data">
+<form class="form-horizontal" action="" method="post"
+ name="uploadCsv" enctype="multipart/form-data"
+ style="margin-top:40px">
 
-<div style="margin: top 20px;">
+<div style="margin-top:20px; margin-left:40%;margin-right:40%">
 <label>Choose CSV File</label>
 <input type="file" name="file" accept=".csv">
-<button type="submit" name="import">Import</button>
+<button type="submit" name="import" style="margin-top:3px;background-color:#519259;padding: 8px 12px;color:#fff;border-radius: 8px;border:none">Import</button>
 </div>
 
 </form>
@@ -42,15 +44,15 @@ $result = mysqli_query($conn,$sqlSelect);
 
 if(mysqli_num_rows($result) > 0) {
     ?>
-    <table>
+    <table style="border:1px solid black; padding: 20px; border-radius: 3px">
         <thead>
             <tr>
-                <th>ID</th>
-                <th>Person Name</th>
-                <th>Position</th>
-                <th>Office</th>
-                <th>Age</th>
-                <th>Start Date</th>
+                <th style="padding: 8px">ID</th>
+                <th style="padding: 8px">Person Name</th>
+                <th style="padding: 8px">Position</th>
+                <th style="padding: 8px">Office</th>
+                <th style="padding: 8px">Age</th>
+                <th style="padding: 8px">Start Date</th>
             </tr>
         </thead>
         <?php
@@ -58,12 +60,12 @@ if(mysqli_num_rows($result) > 0) {
             ?>
             <tbody>
                 <tr>
-                    <td><?php echo $row['id'];?></td>
-                    <td><?php echo $row['person_name'];?></td>
-                    <td><?php echo $row['position'];?></td>
-                    <td><?php echo $row['office'];?></td>
-                    <td><?php echo $row['age'];?></td>
-                    <td><?php echo $row['start_date'];?></td>
+                    <td style="padding: 8px"><?php echo $row['id'];?></td>
+                    <td style="padding: 8px"><?php echo $row['person_name'];?></td>
+                    <td style="padding: 8px"><?php echo $row['position'];?></td>
+                    <td style="padding: 8px"><?php echo $row['office'];?></td>
+                    <td style="padding: 8px"><?php echo $row['age'];?></td>
+                    <td style="padding: 8px"><?php echo $row['start_date'];?></td>
                 </tr>
             </tbody>
             <?php } ?>
